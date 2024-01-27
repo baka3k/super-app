@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SuperAppStructure</string>
+    <string name="title_moviedetail">MovieDetail</string>
+    <string name="title_feature_movie_detail">MovieDetail</string>
+    <string name="title_feature_movie_list">Movies</string>
+
+    <string name="home">Home</string>
+    <string name="streams">Streams</string>
+    <string name="message">Message</string>
+    <string name="profile">Profile</string>
+    <string name="title_feature_react">ReactRuntime</string>
+</resources>

@@ -1,0 +1,16 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml:2:13-83
+INJECTED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml:2:13-83
+	package
+		INJECTED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml
+	xmlns:android
+		ADDED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml:2:23-81
+uses-sdk
+INJECTED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml reason: use-sdk injection requested
+INJECTED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml
+INJECTED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml
+	android:targetSdkVersion
+		INJECTED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml
+	android:minSdkVersion
+		INJECTED from /Users/hieplq1.rpm/AndroidStudioProjects/nowinandroid-main/core/datastore-proto/build/intermediates/tmp/ProcessLibraryManifest/demo/debug/tempAndroidManifest11883081747277226723.xml

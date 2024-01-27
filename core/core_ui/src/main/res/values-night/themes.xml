@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.HiApplication" parent="android:ThemeOverlay.Material.Dark.ActionBar">
+        <item name="android:statusBarColor">@color/grey_50</item>
+    </style>
+</resources>
