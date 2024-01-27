@@ -126,3 +126,5 @@ Recommended development steps for developers who want to develop a super app fro
 -   Android Gradle Plugin: 8.2.1 
 -   React: 0.73.2
 -   Hermes: 0.64.2
+  
+https://github.com/baka3k/super-app/assets/8104076/d67c548b-7038-49e6-9a1a-1b14eeb1d191
