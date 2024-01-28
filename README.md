@@ -126,5 +126,16 @@ Recommended development steps for developers who want to develop a super app fro
 -   Android Gradle Plugin: 8.2.1 
 -   React: 0.73.2
 -   Hermes: 0.64.2
-  
+
+Before using the Runtime Loader module, you'll need to install the necessary Node module.
+```
+cd baka3k-react-native
+npm install
+```
+
+## Get API KEY 
+-    Obtain an Access key from https://developer.themoviedb.org/docs/getting-started.
+-    Update the MOVIEDB_ACCESS_KEY value in the secrets.defaults.properties file.
+
+# Demo
 https://github.com/baka3k/super-app/assets/8104076/d67c548b-7038-49e6-9a1a-1b14eeb1d191
