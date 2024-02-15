@@ -52,7 +52,7 @@ React native is best choice for runtime loader & environment for running miniApp
 To be precise, React Native is the most suitable choice for the **MiniApp runtime environment**.
 #### Mixed Architecture 
 
-- Super apps are **not** built entirely on React Native. This is a **native** application, but there are some modules that allow loading miniapp runtime - as multi-modules, multi-features
+- Super apps are **not** built entirely on React Native. This is a **Native** application, but there are some modules that allow loading miniapp runtime - as multi-modules, multi-features
 - In this time, we have chosen React Native as our runtime environment. And we can completely add other runtime modules in the future through Dynamic Features. Such as Flutter, Unity..etc
 
 #### Application – Dynamic deployment
