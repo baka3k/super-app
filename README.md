@@ -47,6 +47,14 @@ https://github.com/ChimeraFlutter
 https://shorebird.dev/
 
 >*React Native is currently the best choice for developing Super apps.*
+React native is best choice for runtime loader & environment for running miniApp
+
+To be precise, React Native is the most suitable choice for the **MiniApp runtime environment**.
+#### Mixed Architecture 
+
+- Super apps are **not** built entirely on React Native. This is a **native** application, but there are some modules that allow loading miniapp runtime - as multi-modules, multi-features
+- In this time, we have chosen React Native as our runtime environment. And we can completely add other runtime modules in the future through Dynamic Features. Such as Flutter, Unity..etc
+
 #### Application – Dynamic deployment
 ![Alt text](https://i.imgur.com/XvWwY1W.png)
 Mechanism for distributing new Bundle packages
@@ -107,7 +115,14 @@ app permission module will define list permission mini-app can request
 -   Reference: https://github.com/varunon9/react-native-multiple-bundle
 #### Technical points 4 – Move Special engines to Dynamic features
 ![Alt text](https://i.imgur.com/oTUqjEC.png)
->Note: Special engines such as Unity, etc., need to be placed in dynamic features, not added directly to the App Module.
+
+- JS Runtime module:  Mini app runtime environment(React Native, Flutter, Unity..etc)
+- Dynamic Feature module: Downloaded on demand through the Dynamic Feature mechanism of Android
+- Static module: Pre-installed when installing the app from the store
+>Note: Special engines such as ReactNative, Flutter, Unity, etc., need to be placed in dynamic features, not added directly to the App Module.
+
+- Reference: https://github.com/baka3k/super-app/tree/main/feature/feature_react
+
 #### Module Restructure
 ![Alt text](https://i.imgur.com/5CmikzU.png)
 Need to be considered for balance:
