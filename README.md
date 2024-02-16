@@ -51,14 +51,14 @@ React native is best choice for runtime loader & environment for running miniApp
 
 To be precise, React Native is the most suitable choice for the **MiniApp runtime environment**.
 #### Mixed Architecture 
-
+- **Architectural Agility**: You typically do not choose an app’s architecture with full awareness of longer-term requirements. But new requirements invariably emerge based on changing business needs, or previously unanticipated requirements surface that are suddenly a high priority. When this happens, development teams might find that the current chosen architecture fails to meet these evolving requirements. Some architecture profiles can absorb these shifts in requirements more easily than others. For example, web hybrid apps enable most application logic to be changed without app store approval, and — subject to app store terms and conditions — allow for better integration with CI/CD pipelines.
 - Super apps are **not** built entirely on React Native. This is a **Native** application, but there are some modules that allow loading miniapp runtime - as multi-modules, multi-features
 - In this time, we have chosen React Native as our runtime environment. And we can completely add other runtime modules in the future through Dynamic Features. Such as Flutter, Unity..etc
 
 #### Application – Dynamic deployment
 ![Alt text](https://i.imgur.com/XvWwY1W.png)
 Mechanism for distributing new Bundle packages
-#### What’s best bundle server 
+#### What’s best bundle server
 
 Developers can use push code without restrictions, as long as they comply with the app store's guidelines
 - https://microsoft.github.io/code-push/faq/index.html
