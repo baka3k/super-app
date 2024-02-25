@@ -38,7 +38,6 @@ dependencies {
     implementation ("com.facebook.react:react-android:0.73.2") // From node_modules
     implementation ("com.facebook.react:hermes-android:0.73.2")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation("com.facebook.soloader:annotation:0.9.0+")
 }
 apply(from = file("$rootDir/baka3k-react-native/node_modules/@react-native-community/cli-platform-android/native_modules.gradle"))
 val applyNativeModules: Closure<Any> = extra.get("applyNativeModulesAppBuildGradle") as Closure<Any>
