@@ -1,5 +1,6 @@
 package hi.baka.superapp.ui
 
+import android.net.Uri
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
@@ -106,16 +107,16 @@ class HiAppState(
         }
     }
 
-//    fun navigate(destination: Screen, deepLink: Uri? = null) {
-//        trace("Navigation: $destination") {
-//            val target = deepLink ?: destination.deepLinkUrl.toUri()
+    fun navigate( deepLink: Uri) {
+        trace("Navigation: $deepLink") {
 //            if (destination is TopLevelDestination) {
-//                navController.navigate(target)
+//                navController.navigate(deepLink = deepLink)
 //            } else {
-//                navController.navigate(target)
+//                navController.navigate(deepLink)
 //            }
-//        }
-//    }
+            navController.navigate(deepLink)
+        }
+    }
 
     fun onBackPress() {
         navController.popBackStack()

@@ -12,16 +12,26 @@ import hi.baka.splitinstall.LoadFeature
 
 fun NavGraphBuilder.reactRuntimeGraph(
     context: Context,
-    onDismiss: () -> Unit,
+    actions: Actions,
     onBackPress: () -> Unit,
 ) {
-    dialog(ReactScreenDestination.startScreen) {
+    dialog(
+        route = ReactScreenDestination.startScreen,
+//        arguments = listOf(navArgument(ReactScreenDestination.screenIdArg) {
+//            type = NavType.StringType
+//        }),
+//        deepLinks = listOf(navDeepLink {
+//            uriPattern =
+//                "${ReactScreenDestination.deepLinkUrl}?${ReactScreenDestination.screenIdArg}={${ReactScreenDestination.screenIdArg}}"
+//        })
+    ) {
         LoadFeature(
             context = context,
             featureName = FeatureReact,
-            onDismiss = onDismiss,
+            onDismiss = actions.navigateUp, //
         ) {
             // Workaround to be able to use Dynamic Feature with Compose
+            val abc = Uri.parse(ReactScreenDestination.deepLinkUrl)
             // https://issuetracker.google.com/issues/183677219
             val intent = Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse(ReactScreenDestination.deepLinkUrl)

@@ -9,7 +9,9 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.KeyEvent
+import android.widget.Button
 import android.widget.FrameLayout
+import com.facebook.hermes.reactexecutor.HermesExecutorFactory
 import com.facebook.react.BuildConfig
 import com.facebook.react.PackageList
 import com.facebook.react.ReactInstanceManager
@@ -18,17 +20,23 @@ import com.facebook.react.ReactRootView
 import com.facebook.react.common.LifecycleState
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler
 import com.facebook.soloader.SoLoader
-class ReactActivity : BaseSplitActivity(),DefaultHardwareBackBtnHandler {
+
+class ReactActivity : BaseSplitActivity(), DefaultHardwareBackBtnHandler {
     private var mReactRootView: ReactRootView? = null
     private val OVERLAY_PERMISSION_REQ_CODE = 1
-
-    private var mReactInstanceManager: ReactInstanceManager? = null
+    private lateinit var btnCloseActivity: Button
+    private lateinit var mReactInstanceManager: ReactInstanceManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_react)
-        SoLoader.init(this, false)
+        btnCloseActivity = findViewById(R.id.btnCloseActivity)
+        checkAndAskForOverlayPermission()
         loadReactNativeApp()
+        btnCloseActivity.setOnClickListener {
+            finish()
+        }
     }
+
     private fun checkAndAskForOverlayPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
@@ -41,50 +49,37 @@ class ReactActivity : BaseSplitActivity(),DefaultHardwareBackBtnHandler {
         }
     }
 
-    override fun invokeDefaultOnBackPressed() {
-        super.onBackPressed()
-    }
-
+    //
     override fun onPause() {
+        mReactInstanceManager.onHostPause(this)
         super.onPause()
-
-        if (mReactInstanceManager != null) {
-            mReactInstanceManager!!.onHostPause(this)
-        }
     }
 
     override fun onResume() {
         super.onResume()
-
-        if (mReactInstanceManager != null) {
-            mReactInstanceManager!!.onHostResume(this, this)
-        }
+        mReactInstanceManager.onHostResume(this, this)
     }
 
     override fun onDestroy() {
+        mReactInstanceManager.onHostDestroy(this)
+        mReactRootView?.unmountReactApplication()
         super.onDestroy()
-
-        if (mReactInstanceManager != null) {
-            mReactInstanceManager!!.onHostDestroy(this)
-        }
-        if (mReactRootView != null) {
-            mReactRootView!!.unmountReactApplication()
-        }
     }
 
     override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
         if (keyCode == KeyEvent.KEYCODE_MENU && mReactInstanceManager != null) {
-            mReactInstanceManager?.showDevOptionsDialog()
+            mReactInstanceManager.showDevOptionsDialog()
             return true
         }
         return super.onKeyUp(keyCode, event)
     }
 
     private fun loadReactNativeApp() {
-        println("loading RN app")
+        SoLoader.init(applicationContext, false)
         val packages: List<ReactPackage> = PackageList(application).packages
         mReactRootView = ReactRootView(this)
         mReactInstanceManager = ReactInstanceManager.builder()
+            .setJavaScriptExecutorFactory(HermesExecutorFactory())
             .setApplication(application)
             .setCurrentActivity(this)
             .setBundleAssetName("index.android.bundle")
@@ -98,5 +93,10 @@ class ReactActivity : BaseSplitActivity(),DefaultHardwareBackBtnHandler {
         val contentView = findViewById<FrameLayout>(R.id.contentView)
         contentView.removeAllViews()
         contentView.addView(mReactRootView)
+    }
+
+
+    override fun invokeDefaultOnBackPressed() {
+        finish()
     }
 }

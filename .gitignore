@@ -10,7 +10,12 @@
 /.idea/assetWizardSettings.xml
 .DS_Store
 /build
+**/build/*
 /captures
 .externalNativeBuild
 .cxx
 /.idea/
+*.bin
+build-logic/convention/build/kotlin/compileKotlin/cacheable/last-build.bin
+build-logic/convention/build/kotlin/compileKotlin/local-state/build-history.bin
+build-logic/convention/build/libs/convention.jar

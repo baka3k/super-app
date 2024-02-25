@@ -1,13 +1,5 @@
 buildscript {
     repositories {
-        maven {
-            url =
-                uri(path = "$rootDir/baka3k-react-native/node_modules/node_modules/react-native/android")
-        }
-        maven {
-            url =
-                uri(path = "$rootDir/baka3k-react-native/node_modules/node_modules/jsc-android/dist")
-        }
         google()
         mavenCentral()
 

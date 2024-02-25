@@ -15,10 +15,10 @@ tools:context="hi.baka.feature.react.ReactActivity">
     android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
 <Button
-    android:id="@+id/button"
+    android:id="@+id/btnCloseActivity"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="ClickMe" />
+    android:text="Close React Native Component" />
 <FrameLayout
     android:id="@+id/contentView"
     android:layout_width="match_parent"
