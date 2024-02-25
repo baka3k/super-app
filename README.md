@@ -47,10 +47,18 @@ https://github.com/ChimeraFlutter
 https://shorebird.dev/
 
 >*React Native is currently the best choice for developing Super apps.*
+React native is best choice for runtime loader & environment for running miniApp
+
+To be precise, React Native is the most suitable choice for the **MiniApp runtime environment**.
+#### Mixed Architecture 
+- **Architectural Agility**: You typically do not choose an app’s architecture with full awareness of longer-term requirements. But new requirements invariably emerge based on changing business needs, or previously unanticipated requirements surface that are suddenly a high priority. When this happens, development teams might find that the current chosen architecture fails to meet these evolving requirements. Some architecture profiles can absorb these shifts in requirements more easily than others. For example, web hybrid apps enable most application logic to be changed without app store approval, and — subject to app store terms and conditions — allow for better integration with CI/CD pipelines.
+- Super apps are **not** built entirely on React Native. This is a **Native** application, but there are some modules that allow loading miniapp runtime - as multi-modules, multi-features
+- In this time, we have chosen React Native as our runtime environment. And we can completely add other runtime modules in the future through Dynamic Features. Such as Flutter, Unity..etc
+
 #### Application – Dynamic deployment
 ![Alt text](https://i.imgur.com/XvWwY1W.png)
 Mechanism for distributing new Bundle packages
-#### What’s best bundle server 
+#### What’s best bundle server
 
 Developers can use push code without restrictions, as long as they comply with the app store's guidelines
 - https://microsoft.github.io/code-push/faq/index.html
@@ -107,7 +115,14 @@ app permission module will define list permission mini-app can request
 -   Reference: https://github.com/varunon9/react-native-multiple-bundle
 #### Technical points 4 – Move Special engines to Dynamic features
 ![Alt text](https://i.imgur.com/oTUqjEC.png)
->Note: Special engines such as Unity, etc., need to be placed in dynamic features, not added directly to the App Module.
+
+- JS Runtime module:  Mini app runtime environment(React Native, Flutter, Unity..etc)
+- Dynamic Feature module: Downloaded on demand through the Dynamic Feature mechanism of Android
+- Static module: Pre-installed when installing the app from the store
+>Note: Special engines such as ReactNative, Flutter, Unity, etc., need to be placed in dynamic features, not added directly to the App Module.
+
+- Reference: https://github.com/baka3k/super-app/tree/main/feature/feature_react
+
 #### Module Restructure
 ![Alt text](https://i.imgur.com/5CmikzU.png)
 Need to be considered for balance:
@@ -126,3 +141,16 @@ Recommended development steps for developers who want to develop a super app fro
 -   Android Gradle Plugin: 8.2.1 
 -   React: 0.73.2
 -   Hermes: 0.64.2
+
+Before using the Runtime Loader module, you'll need to install the necessary Node module.
+```
+cd baka3k-react-native
+npm install
+```
+
+## Get API KEY 
+-    Obtain an Access key from https://developer.themoviedb.org/docs/getting-started.
+-    Update the MOVIEDB_ACCESS_KEY value in the secrets.defaults.properties file.
+
+# Demo
+https://github.com/baka3k/super-app/assets/8104076/d67c548b-7038-49e6-9a1a-1b14eeb1d191
