@@ -19,3 +19,6 @@
 build-logic/convention/build/kotlin/compileKotlin/cacheable/last-build.bin
 build-logic/convention/build/kotlin/compileKotlin/local-state/build-history.bin
 build-logic/convention/build/libs/convention.jar
+build-logic/convention/build/kotlin/compileKotlin/cacheable/last-build.bin
+build-logic/convention/build/kotlin/compileKotlin/local-state/build-history.bin
+build-logic/convention/build/libs/convention.jar
