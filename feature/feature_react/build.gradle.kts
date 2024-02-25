@@ -32,8 +32,6 @@ kotlin {
 }
 
 dependencies {
-    implementation(libs.androidx.constraintlayout.compose)
-    implementation(libs.kotlinx.datetime)
     implementation(project(":app"))
     implementation ("com.facebook.react:react-android:0.73.2") // From node_modules
     implementation ("com.facebook.react:hermes-android:0.73.2")
