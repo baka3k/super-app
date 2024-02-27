@@ -17,14 +17,10 @@ fun NavGraphBuilder.reactRuntimeGraph(
 ) {
     dialog(
         route = ReactScreenDestination.startScreen,
-//        arguments = listOf(navArgument(ReactScreenDestination.screenIdArg) {
-//            type = NavType.StringType
-//        }),
-//        deepLinks = listOf(navDeepLink {
-//            uriPattern =
-//                "${ReactScreenDestination.deepLinkUrl}?${ReactScreenDestination.screenIdArg}={${ReactScreenDestination.screenIdArg}}"
-//        })
-    ) {
+    ) {navBackStackEntry ->
+        val personId = navBackStackEntry.arguments?.getString(ReactScreenDestination.screenIdArg)
+        val deepLinkUrl ="${ReactScreenDestination.deepLinkUrl}?${ReactScreenDestination.screenIdArg}=$personId"
+//        Log.d("HAHA", "personId: $personId")
         LoadFeature(
             context = context,
             featureName = FeatureReact,
@@ -34,7 +30,7 @@ fun NavGraphBuilder.reactRuntimeGraph(
             val abc = Uri.parse(ReactScreenDestination.deepLinkUrl)
             // https://issuetracker.google.com/issues/183677219
             val intent = Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse(ReactScreenDestination.deepLinkUrl)
+                data = Uri.parse(deepLinkUrl)
                 `package` = context.packageName
             }
             context.startActivity(intent)

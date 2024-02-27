@@ -26,6 +26,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.baka3k.architecture.core.ui.theme.AppTheme
@@ -46,12 +47,16 @@ fun SearchEditText(
             .padding(start = 20.dp, end = 20.dp, top = 20.dp)
     )
     {
-        var value by rememberSaveable {
+        var valueState by rememberSaveable {
             mutableStateOf(value)
         }
-        val transformation = VisualTransformation.None
+        val colors = TextFieldDefaults.colors(
+            focusedContainerColor = Color.Unspecified,
+            unfocusedContainerColor = Color.Unspecified,
+            disabledContainerColor = Color.Unspecified,
+        )
         BasicTextField(
-            value = value,
+            value = valueState,
             enabled = true,
             singleLine = true,
             textStyle = MaterialTheme.typography.bodySmall.copy(color = AppTheme.colors.colorContentEditText),
@@ -70,27 +75,28 @@ fun SearchEditText(
                         modifier = Modifier.padding(start = 5.dp),
                         tint = AppTheme.colors.colorContentEditText
                     )
-                    TextFieldDefaults.TextFieldDecorationBox(
-                        value = value,
+                    TextFieldDefaults.DecorationBox(
+                        colors = colors,
+                        value = valueState,
                         innerTextField = innerTextField,
                         enabled = true,
                         singleLine = true,
-                        visualTransformation = transformation,
+                        visualTransformation = VisualTransformation.None,
                         interactionSource = interactionSource,
-                        contentPadding = PaddingValues(start = 5.dp, end = 20.dp),
                         placeholder = {
                             Text(
                                 "Search",
                                 style = MaterialTheme.typography.bodySmall
                             )
-                        }
+                        },
+                        contentPadding = PaddingValues(start = 5.dp, end = 20.dp),
                     )
                 }
 
             },
             keyboardActions = keyboardActions,
             onValueChange = {
-                value = it
+                valueState = it
                 onValueChanged.invoke(it)
             },
         )

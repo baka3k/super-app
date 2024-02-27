@@ -33,9 +33,17 @@ kotlin {
 
 dependencies {
     implementation(project(":app"))
-    implementation ("com.facebook.react:react-android:0.73.2") // From node_modules
-    implementation ("com.facebook.react:hermes-android:0.73.2")
+    implementation ("com.facebook.react:react-android:0.73.5") // From node_modules
+    implementation ("com.facebook.react:hermes-android:0.73.5")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    // for test
+    implementation(project(":core_database"))
+    implementation(project(":core_model"))
+    implementation(project(":core_data"))
+    implementation(project(":core_network"))
+    implementation(project(":core_common"))
+    //
+    implementation(libs.kotlinx.serialization.json)
 }
 apply(from = file("$rootDir/baka3k-react-native/node_modules/@react-native-community/cli-platform-android/native_modules.gradle"))
 val applyNativeModules: Closure<Any> = extra.get("applyNativeModulesAppBuildGradle") as Closure<Any>
