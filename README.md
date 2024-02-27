@@ -153,4 +153,4 @@ npm install
 -    Update the MOVIEDB_ACCESS_KEY value in the secrets.defaults.properties file.
 
 # Demo
-https://github.com/baka3k/super-app/assets/8104076/d67c548b-7038-49e6-9a1a-1b14eeb1d191
+![Alt text](ReadmeResources/sample.gif)
