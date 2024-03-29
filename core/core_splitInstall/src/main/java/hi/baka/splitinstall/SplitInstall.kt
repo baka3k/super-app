@@ -102,12 +102,12 @@ private fun RequestDownload(setState: (SplitInstallState) -> Unit, onDismiss: ()
             OptionButton(
                 confirmButton = {
                     ConfirmButton(label =  stringResource(id = R.string.split_confirmation_install_accept)) {
-
+                        setState(Downloading)
                     }
                 },
                 cancelButton = {
                     CancelButton(label = stringResource(id = R.string.split_confirmation_install_deny)) {
-
+                        onDismiss()
                     }
                 }
             )

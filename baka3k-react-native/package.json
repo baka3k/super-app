@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "jsc-android": "^250231.0.0",
     "react": "^18.2.0",
     "react-native": "^0.73.2",
     "react-native-cli": "^2.0.1"
@@ -18,7 +19,7 @@
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
-    "@react-native-community/cli-platform-android": "^3.0.2",
+    "@react-native-community/cli-platform-android": "3.0.2",
     "@react-native/babel-preset": "0.73.19",
     "@react-native/eslint-config": "0.73.2",
     "@react-native/metro-config": "0.73.3",

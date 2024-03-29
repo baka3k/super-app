@@ -1,26 +1,52 @@
+import hi.baka.feature.data.toHexString
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
 import java.security.MessageDigest
 
 object HashUtils {
+    private const val STREAM_BUFFER_LENGTH = 1024
+    fun checkSum(
+        originSum: String,
+        digest: MessageDigest = MessageDigest.getInstance(MessageDigestAlgorithm.SHA_256),
+        filePath: String
+    ): Boolean {
+        val fileSum = generateCheckSum(digest = digest, filePath = filePath)
+        return originSum.equals(fileSum, ignoreCase = true)
+    }
 
-    const val STREAM_BUFFER_LENGTH = 1024
-    fun compareCheckSum(originSum: String, filePath: String): Boolean {
-        val digest = MessageDigest.getInstance(MessageDigestAlgorithm.SHA_256)
-        val fileSum = getCheckSumFromFile(digest = digest, filePath = filePath)
+    fun checkSum(
+        originSum: String,
+        digest: MessageDigest = MessageDigest.getInstance(MessageDigestAlgorithm.SHA_256),
+        inputStream: InputStream
+    ): Boolean {
+        val fileSum = generateCheckSum(digest = digest, inputStream = inputStream)
         return originSum.equals(fileSum, ignoreCase = true)
     }
 
     /**
      * HashUtils.getCheckSumFromFile(MessageDigest.getInstance(MessageDigestAlgorithm.SHA_256),path)
      * */
-    fun getCheckSumFromFile(digest: MessageDigest, filePath: String): String {
+    fun generateCheckSum(
+        digest: MessageDigest = MessageDigest.getInstance(MessageDigestAlgorithm.SHA_256),
+        filePath: String
+    ): String {
         val file = File(filePath)
-        return getCheckSumFromFile(digest, file)
+        return generateCheckSum(digest, file)
     }
 
-    fun getCheckSumFromFile(digest: MessageDigest, file: File): String {
+    fun generateCheckSum(
+        digest: MessageDigest = MessageDigest.getInstance(MessageDigestAlgorithm.SHA_256),
+        inputStream: InputStream
+    ): String {
+        val byteArray = updateDigest(digest, inputStream).digest()
+        return byteArray.toHexString()
+    }
+
+    fun generateCheckSum(
+        digest: MessageDigest = MessageDigest.getInstance(MessageDigestAlgorithm.SHA_256),
+        file: File
+    ): String {
         val fis = FileInputStream(file)
         val byteArray = updateDigest(digest, fis).digest()
         fis.close()
@@ -61,29 +87,3 @@ object MessageDigestAlgorithm {
     const val SHA3_384 = "SHA3-384"
     const val SHA3_512 = "SHA3-512"
 }
-
-fun ByteArray.toHexString(): String {
-    return toHexString(0, this.size)
-}
-
-/**
- * Converts the byte array to HEX string.
- *
- * @param buffer
- * the buffer.
- * @return the HEX string.
- */
-fun ByteArray.toHexString(offset: Int, length: Int): String {
-    val sb = StringBuilder()
-    for (i in offset until (offset + length)) {
-        val b = this[i]
-        val octet = b.toInt()
-        val firstIndex = (octet and 0xF0).ushr(4)
-        val secondIndex = octet and 0x0F
-        sb.append(HEX_CHARS[firstIndex])
-        sb.append(HEX_CHARS[secondIndex])
-    }
-    return sb.toString()
-}
-
-private val HEX_CHARS = "0123456789ABCDEF".toCharArray()

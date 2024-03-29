@@ -5,7 +5,10 @@ import android.content.Intent
 import android.net.Uri
 import androidx.core.net.toUri
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavType
 import androidx.navigation.compose.dialog
+import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import com.baka3k.core.navigation.Screen
 import hi.baka.splitinstall.LoadFeature
 
@@ -17,7 +20,14 @@ fun NavGraphBuilder.reactRuntimeGraph(
 ) {
     dialog(
         route = ReactScreenDestination.startScreen,
-    ) {navBackStackEntry ->
+        arguments = listOf(navArgument(ReactScreenDestination.screenIdArg) {
+            type = NavType.StringType
+        }),
+        deepLinks = listOf(navDeepLink {
+            uriPattern =
+                "${ReactScreenDestination.deepLinkUrl}?${ReactScreenDestination.screenIdArg}={${ReactScreenDestination.screenIdArg}}"
+        })
+    ) { navBackStackEntry ->
         val personId = navBackStackEntry.arguments?.getString(ReactScreenDestination.screenIdArg)
         val deepLinkUrl ="${ReactScreenDestination.deepLinkUrl}?${ReactScreenDestination.screenIdArg}=$personId"
 //        Log.d("HAHA", "personId: $personId")

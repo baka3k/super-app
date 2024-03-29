@@ -13,18 +13,17 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
         }
     }
     compileSdk = 34
     defaultConfig {
-        minSdk = 31
+        minSdk = 21
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.3"
+    }
+    buildFeatures {
+        compose = true
     }
 }
 kotlin {
@@ -33,17 +32,18 @@ kotlin {
 
 dependencies {
     implementation(project(":app"))
-    implementation ("com.facebook.react:react-android:0.73.5") // From node_modules
-    implementation ("com.facebook.react:hermes-android:0.73.5")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation (libs.react.android) // From node_modules
+    implementation (libs.hermes.android)
+    implementation(libs.kotlinx.coroutines.android)
     // for test
     implementation(project(":core_database"))
     implementation(project(":core_model"))
     implementation(project(":core_data"))
     implementation(project(":core_network"))
     implementation(project(":core_common"))
-    //
-    implementation(libs.kotlinx.serialization.json)
+    implementation(project(":core_ui"))
+    implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.kotlinx.serialization.json) // for data Json parser
 }
 apply(from = file("$rootDir/baka3k-react-native/node_modules/@react-native-community/cli-platform-android/native_modules.gradle"))
 val applyNativeModules: Closure<Any> = extra.get("applyNativeModulesAppBuildGradle") as Closure<Any>

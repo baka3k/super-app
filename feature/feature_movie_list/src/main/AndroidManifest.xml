@@ -1,22 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution">
-
-    <dist:module dist:title="@string/module_feature_kotlin">
-        <dist:delivery>
-            <dist:on-demand />
-        </dist:delivery>
-        <dist:fusing dist:include="true" />
-    </dist:module>
-
-    <application>
-        <activity
-            android:name="hi.baka.superapp.feature.movie.list.MoviesActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-            </intent-filter>
-        </activity>
-        <activity android:name="hi.baka.superapp.feature.movie.list.MoviesActivity1"></activity>
-    </application>
 </manifest>

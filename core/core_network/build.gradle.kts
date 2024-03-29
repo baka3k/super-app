@@ -33,7 +33,6 @@ dependencies {
     implementation(libs.retrofit.core)
     implementation(libs.retrofit.kotlin.serialization)
 
-//    testImplementation(projects.core.testing)
 }
 android {
     namespace = "com.baka3k.core.network"

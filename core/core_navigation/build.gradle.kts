@@ -4,7 +4,6 @@ plugins {
     id("hi.android.library.jacoco")
     id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp")
-//    kotlin("kapt")
 }
 dependencies {
     api(libs.androidx.hilt.navigation.compose)

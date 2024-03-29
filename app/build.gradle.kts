@@ -23,7 +23,6 @@ android {
             useSupportLibrary = true
         }
     }
-
     buildTypes {
         debug {
             applicationIdSuffix = HiBuildType.DEBUG.applicationIdSuffix
@@ -31,9 +30,9 @@ android {
         val release = getByName("release") {
             isMinifyEnabled = true
             applicationIdSuffix = HiBuildType.RELEASE.applicationIdSuffix
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-            )
+//            proguardFiles(
+//                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+//            )
 
             // To publish on the Play store a private signing key is required, but to allow anyone
             // who clones the code to sign and run the release variant, use the debug signing key.
@@ -65,7 +64,8 @@ android {
             isIncludeAndroidResources = true
         }
     }
-    dynamicFeatures += setOf(":feature_person", ":feature_react")
+    dynamicFeatures += setOf(
+        ":feature_react")
 }
 
 dependencies {
@@ -93,8 +93,6 @@ dependencies {
     implementation(project(":core_splitInstall"))
     implementation(project(":feature_movie_list"))
     implementation(project(":feature_movie_detail"))
-
-//    implementation(project(":feature_person"))
 }
 
 baselineProfile {

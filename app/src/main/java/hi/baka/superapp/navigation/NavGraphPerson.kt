@@ -7,6 +7,7 @@ import androidx.core.net.toUri
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.dialog
 import com.baka3k.core.navigation.Screen
+import hi.baka.feature.movie.detail.navigation.MovieDetailDestination
 import hi.baka.splitinstall.LoadFeature
 
 
@@ -23,6 +24,7 @@ fun NavGraphBuilder.personScreenComposeGraph(
         ) {
             // Workaround to be able to use Dynamic Feature with Compose
             // https://issuetracker.google.com/issues/183677219
+
             val intent = Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse(PersonScreenDestination.deepLinkUrl)
                 `package` = context.packageName

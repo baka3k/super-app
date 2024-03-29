@@ -1,4 +1,5 @@
 .DS_Store
+**/.DS_Store
 *.iml
 .gradle
 /local.properties
@@ -8,13 +9,12 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
-.DS_Store
+/.idea/
 /build
 build/*/
 **/build/*
 /captures
 .externalNativeBuild
 .cxx
-/.idea/
 *.bin
-secrets.defaults.properties
+package-lock.json

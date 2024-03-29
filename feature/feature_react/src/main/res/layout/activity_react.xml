@@ -1,26 +1,71 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:orientation="vertical"
-tools:context="hi.baka.feature.react.ReactActivity">
-
-<TextView
-    android:id="@+id/textView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:padding="8dp"
-    android:text="This is a dynamic feature, written in \nKotlin\n which can be loaded on demand."
-    android:textAppearance="@style/TextAppearance.AppCompat.Large" />
-
-<Button
-    android:id="@+id/btnCloseActivity"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Close React Native Component" />
-<FrameLayout
-    android:id="@+id/contentView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
-</LinearLayout>
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="hi.baka.feature.react.ReactActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="This is a dynamic feature, written in Kotlin which can be loaded on demand."
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <LinearLayout
+        android:id="@+id/actionButtonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <Button
+            android:id="@+id/btnLoadComposeView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ComposeView"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/btnLoadJsBundle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="JSBundle1"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/btnLoadJsBundle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="JSBundle2"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/btnLoadJsBundle3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Load NativeView"
+            android:textSize="8dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/contentView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/actionButtonLayout" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="367dp"
+        android:layout_marginBottom="687dp" />
+</RelativeLayout>

@@ -19,9 +19,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 interface NetworkModule {
     @Binds
-    fun bindsNiaNetwork(
+    fun bindsHiNetwork(
 //        niANetwork: FakeNiaNetworkDataSource
-        niANetwork: RetrofitMovieNetworkDataSource
+        hiNetwork: RetrofitMovieNetworkDataSource
     ): MovieNetworkDataSource
 
     @Binds

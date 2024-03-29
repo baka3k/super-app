@@ -41,34 +41,25 @@ fun HiNavGraph(
             }
         )
         movieDetailComposeGraph(onBackPress = onBackPress, navigateToPersonScreen = { personId ->
-//            onNavigateToScreen(
-//                PersonScreenDestination,
-//                PersonScreenDestination.createNavigationRoute(personId.toString())
-//            )
             onNavigateToScreen(
                 ReactScreenDestination,
                 ReactScreenDestination.createNavigationRoute(personId.toString())
-//                ReactScreenDestination.createNavigationRouteByDeepLink(personId).toString()
             )
-
-//            onNavigateToScreen(
-//                ReactScreenDestination,
-//                ReactScreenDestination.createNavigationRoute(personId.toString())
-//            )
+//            actions.navigateToPerson(personId)
         })
-        personScreenComposeGraph(context = context, onBackPress = onBackPress, onDismiss = {})
         reactRuntimeGraph(
             context = context,
             onBackPress = onBackPress,
-            actions = actions)
+            actions = actions
+        )
+        personScreenComposeGraph(context = context, onBackPress = onBackPress, onDismiss = {})
     }
 }
 
 data class Actions(val navController: NavHostController, val context: Context) {
-    //    val openCategoryBottomSheet: (Long?) -> Unit = { categoryId ->
-//        val id = categoryId ?: 0L
-//        navController.navigate("${Destinations.BottomSheet.Category}/$id")
-//    }
+    val navigateToPerson: (Long) -> Unit = { personId ->
+        navController.navigate(ReactScreenDestination.createNavigationRoute(personId.toString()))
+    }
     val navigateUp: () -> Unit = {
         navController.navigateUp()
     }

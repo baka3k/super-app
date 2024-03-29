@@ -64,4 +64,4 @@ yarn-error.log
 
 # testing
 /coverage
-/node_modules/
+/node_modules

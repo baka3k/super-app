@@ -1,6 +1,7 @@
 package hi.baka.feature.movie.detail.navigation
 
 import android.net.Uri
+import android.util.Log
 import androidx.core.net.toUri
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavType
@@ -33,18 +34,22 @@ fun NavGraphBuilder.movieDetailComposeGraph(
     navigateToPersonScreen: (Long) -> Unit,
     onBackPress: () -> Unit
 ) {
-    composable(route = MovieDetailDestination.startScreen,
+    composable(
+        route = MovieDetailDestination.startScreen,
         arguments = listOf(navArgument(MovieDetailDestination.movieIdArg) {
             type = NavType.StringType
         }),
         deepLinks = listOf(navDeepLink {
             uriPattern =
                 "${MovieDetailDestination.deepLinkUrl}?${MovieDetailDestination.movieIdArg}={${MovieDetailDestination.movieIdArg}}"
-        })
+        }),
     ) {
+            navBackStackEntry ->
+//        val movieIdArg = navBackStackEntry.arguments?.getString(MovieDetailDestination.movieIdArg)
         MovieDetailRouter(
             navigateToPersonScreen = navigateToPersonScreen,
             onBackPress = onBackPress
         )
     }
+
 }

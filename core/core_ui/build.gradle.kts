@@ -10,7 +10,6 @@ android {
     namespace = "com.baka3k.architecture.core.ui"
 }
 dependencies {
-//    implementation(project(":core:core-model"))
     implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.window.manager)
     implementation(libs.androidx.core.ktx)

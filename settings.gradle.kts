@@ -32,7 +32,7 @@ include(":core_splitInstall")
 
 include(":feature_movie_list")
 include(":feature_movie_detail")
-include(":feature_person")
+//include(":feature_person")
 // project location
 
 project(":core_navigation").projectDir = File(rootDir, "core/core_navigation")
@@ -48,11 +48,12 @@ project(":core_splitInstall").projectDir = File(rootDir, "core/core_splitInstall
 
 project(":feature_movie_list").projectDir = File(rootDir, "feature/feature_movie_list")
 project(":feature_movie_detail").projectDir = File(rootDir, "feature/feature_movie_detail")
-project(":feature_person").projectDir = File(rootDir, "feature/feature_person")
+//project(":feature_person").projectDir = File(rootDir, "feature/feature_person")
 
 
 include(":feature_react")
 project(":feature_react").projectDir = File(rootDir, "feature/feature_react")
+
 /// react native config
 includeBuild("$rootDir/baka3k-react-native/node_modules/@react-native/gradle-plugin")
 apply(from = "$rootDir/baka3k-react-native/node_modules/@react-native-community/cli-platform-android/native_modules.gradle")

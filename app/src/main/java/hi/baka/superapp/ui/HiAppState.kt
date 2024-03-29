@@ -1,6 +1,7 @@
 package hi.baka.superapp.ui
 
 import android.net.Uri
+import android.util.Log
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Home
@@ -86,6 +87,7 @@ class HiAppState(
 
 
     fun navigate(destination: Screen, route: String? = null) {
+//        Log.d("HAHA","destination: $destination route:$route")
         trace("Navigation: $destination") {
             if (destination is TopLevelDestination) {
                 navController.navigate(route ?: destination.startScreen) {

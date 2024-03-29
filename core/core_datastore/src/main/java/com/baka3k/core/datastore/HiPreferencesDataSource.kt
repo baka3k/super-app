@@ -40,13 +40,13 @@ class HiPreferencesDataSource @Inject constructor(
                 }
             }
         } catch (ioException: IOException) {
-            Log.e("NiaPreferences", "Failed to update user preferences", ioException)
+            Log.e("HiaPreferences", "Failed to update user preferences", ioException)
         }
     }
 
     val followedTopicIds: Flow<Set<String>> = userPreferences.data
         .retry {
-            Log.e("NiaPreferences", "Failed to read user preferences", it)
+            Log.e("HiPreferences", "Failed to read user preferences", it)
             true
         }
         .map { it.followedTopicIdsList.toSet() }
@@ -98,7 +98,7 @@ class HiPreferencesDataSource @Inject constructor(
                 }
             }
         } catch (ioException: IOException) {
-            Log.e("NiaPreferences", "Failed to update user preferences", ioException)
+            Log.e("HiPreferences", "Failed to update user preferences", ioException)
         }
     }
 
@@ -117,13 +117,13 @@ class HiPreferencesDataSource @Inject constructor(
                 }
             }
         } catch (ioException: IOException) {
-            Log.e("NiaPreferences", "Failed to update user preferences", ioException)
+            Log.e("HiPreferences", "Failed to update user preferences", ioException)
         }
     }
 
     val followedAuthorIds: Flow<Set<String>> = userPreferences.data
         .retry {
-            Log.e("NiaPreferences", "Failed to read user preferences", it)
+            Log.e("HiPreferences", "Failed to read user preferences", it)
             true
         }
         .map { it.followedAuthorIdsList.toSet() }
