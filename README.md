@@ -14,6 +14,7 @@
 -   Interpreted Native: Flutter, React native…
 -   Web Hybrid: Cordova, Ionic…
 
+
 *=> Interpreted Native is best for Super App*
 #### What’s best mobile framework?
 
@@ -100,6 +101,7 @@ Use for vendors to develop their mini apps
 -   Mini App & Permission
 -   Multiple Bundle/Mini apps
 -   Move special engines(Unity, React native) to Dynamic features
+-   MiniApps & MainApp Trust Mechanism
 -   T.B.D
 #### Technical points 1 – Integration with existing app
 -   Reference: https://reactnative.dev/docs/integration-with-existing-apps​
@@ -112,7 +114,9 @@ app permission module will define list permission mini-app can request
     -   When Mini app request permission, app Permission module will double check on native app to ensure supper app was grant permission and return to Mini app 
     -   MainApp app just work with white list Mini app 
 #### Technical points 3 – Multiple Bundle/Mini apps
--   Reference: https://github.com/varunon9/react-native-multiple-bundle
+-   https://github.com/varunon9/react-native-multiple-bundle
+-   https://re-pack.dev/
+  
 #### Technical points 4 – Move Special engines to Dynamic features
 ![Alt text](https://i.imgur.com/oTUqjEC.png)
 
@@ -122,6 +126,31 @@ app permission module will define list permission mini-app can request
 >Note: Special engines such as ReactNative, Flutter, Unity, etc., need to be placed in dynamic features, not added directly to the App Module.
 
 - Reference: https://github.com/baka3k/super-app/tree/main/feature/feature_react
+
+#### Technical points 5 – MiniApps & MainApp Trust Mechanism
+![Imgur](https://i.imgur.com/mAqxEyW.png)
+
+#### Technical points 6 - Plugin management
+![Imgur](https://i.imgur.com/c8admL3.png)
+
+
+- Do **NOT** use GuardedAsyncTask(com.facebook.react.bridge.GuardedAsyncTask)
+    - AsyncTask is Deprecated
+    - Can not cancel, may be block other task if thread pool is full
+- Apply Coroutine - Kotlin / Java – Executors
+- Allow a maximum of 1 thread for each module
+
+![Imgur](https://i.imgur.com/7lNuiwU.png)
+
+#### Technical points 7 - Manifest & Premission & CMS
+![Imgur](https://i.imgur.com/UoGYQvz.png)
+- Permission types
+    - Normal permission
+    - Dangerous permission
+    - Temporary permission
+- Permission groups
+
+![Imgur](https://i.imgur.com/dzMk5ul.png)
 
 #### Module Restructure
 ![Alt text](https://i.imgur.com/5CmikzU.png)
